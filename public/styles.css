@@ -1,0 +1,202 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  * {
+    font-size: 16px;
+    margin: 0;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  #root, #__next {
+    isolation: isolate;
+  }
+  :root {
+    --primary-clr-orange: hsl(26, 100%, 55%);
+    --primary-clr-pale-orange: hsl(25, 100%, 94%);
+    --dark-blue-clr: hsl(220, 13%, 13%);
+    --dark-gray-blue-clr: hsl(219, 9%, 45%);
+    --gray-blue-clr: hsl(220, 14%, 75%);
+    --light-gray-blue-clr: hsl(223, 64%, 98%);
+    --white-clr: hsl(0, 0%, 100%);
+    --black-clr: hsl(0, 0%, 0%);
+    --padding-inline: 1.5rem;
+    --padding-block: 1rem;
+    --flex-gap: 1rem;
+  }
+/* =================================================================== */
+body {
+  /* min-height: 100vh; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Kumbh Sans', sans-serif,Arial, Helvetica, sans-serif;
+}
+/** Header style  */
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(0rem, 1rem ,2rem);
+  padding-inline: var(--padding-inline);
+  padding-block: var(--padding-block);
+
+}
+.avatar {
+  max-width: 10%;
+}
+ .cart-icon {
+  margin-left: auto;
+}
+.logo-icon {
+  margin-right: auto;
+}
+.nav-bar {
+  display: none;
+}
+/** Main style */
+#main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--flex-gap);
+}
+/** Carousel style  */
+.carousel-img, .carousel-thumbnail {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  /* transform: translate(-25%,0); */
+}
+.carousel-img img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.carousel-thumbnail {
+  padding-top: var(--padding-block);
+  display: none;
+}
+.icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border-radius: 50%;
+  aspect-ratio: 1 /1;
+  border: none;
+  width: 2.5rem;
+  text-align: center;
+}
+
+.previous-icon {
+  left: var(--padding-inline);
+}
+.next-icon {
+  right: var(--padding-inline);
+}
+/** Main content styling */
+.product-info {
+  padding-inline: var(--padding-inline);
+  padding-block: calc(var(--padding-block) - 1rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.info-sub-heading {
+  color: rgb(243, 175, 3);
+  font-size: .8rem;
+  letter-spacing: 2px;
+  font-weight: 900;
+}
+
+.info-heading {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.info-description {
+  color: var(--dark-gray-blue-clr);
+  /* font-weight: 500; */
+}
+
+.price, .quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.current-price {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.discount-price {
+  color: var(--primary-clr-orange);
+  font-weight: 700;
+  background-color: var(--primary-clr-pale-orange);
+  padding-inline: 0.5rem;
+  border-radius: 5px;
+  position: absolute;
+  left: 8rem;
+}
+
+.old-price {
+  color: var(--gray-blue-clr);
+  font-weight: 700;
+  text-decoration:line-through;
+  
+ /* justify-self: end; */
+}
+
+.quantity {
+  background-color: var(--light-gray-blue-clr);
+  padding-inline: var(--padding-inline);
+  padding-block: var(--padding-block);
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.material-symbols-outlined {
+  vertical-align: middle;
+}
+
+.btn-add {
+  padding-block: var(--padding-block);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  border: none;
+  background-color: var(--primary-clr-orange);
+  color: var(--white-clr);
+  font-weight: 700;
+  border-radius: 10px;
+}
