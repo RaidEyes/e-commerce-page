@@ -120,7 +120,7 @@ body {
   border-radius: 5px;
 }
 .cart-detail {
-  display: grid;
+  display: none;
   grid-template-rows: 0.5fr 1fr;
   padding-inline: var(--padding-inline);
   padding-block: var(--padding-block);

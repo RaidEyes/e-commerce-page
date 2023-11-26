@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 
 function ProductInfo() {
+  const [changeValue, setChangeValue] = useState(0);
+
+  const increaseNumber = () => {
+    let prev = changeValue;
+    setChangeValue(prev + 1);
+  };
+  const decreaseNumber = () => {
+    if (changeValue === 0) return;
+    let prev = changeValue;
+    setChangeValue(prev - 1);
+  };
+
+  const productInfo = {
+    name: `Fall Limited Edition Sneakers`,
+    price: `$125.00`,
+    quantity: `${changeValue}`,
+    url: `/images/image-product-1-thumbnail.jpg`,
+  };
+
   return (
     <div className="product-info">
       <h3 className="info-sub-heading">SNEAKER COMPANY</h3>
-      <h1 className="info-heading">Fall Limited Edition Sneakers</h1>
+      <h1 className="info-heading"></h1>
       <p className="info-description">
         These low-profile sneakers are your perfect casual wear companion.
         Featuring a durable rubber outer sole, they’ll withstand everything the
@@ -17,9 +36,19 @@ function ProductInfo() {
       </div>
       <div className="function-btn">
         <div className="quantity">
-          <img src="/images/icon-minus.svg" />
-          <p className="numver-display">0</p>
-          <img src="/images/icon-plus.svg" />
+          <img
+            style={{ cursor: `pointer` }}
+            src="/images/icon-minus.svg"
+            alt="minus icon"
+            onClick={decreaseNumber}
+          />
+          <p className="numver-display">{changeValue}</p>
+          <img
+            style={{ cursor: `pointer` }}
+            src="/images/icon-plus.svg"
+            alt="add icon"
+            onClick={increaseNumber}
+          />
         </div>
         <button className="btn btn-add">
           <svg
