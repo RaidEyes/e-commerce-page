@@ -8,7 +8,6 @@ function CartDetail(props) {
   return (
     <div className="cart-detail" data-check={props.value}>
       <h3 className="cart-name">Cart</h3>
-
       <div className="product-detail">
         <p>Your cart is empty</p>
       </div>
