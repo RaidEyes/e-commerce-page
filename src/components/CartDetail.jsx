@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { productContext } from "./App";
 
 function CartDetail(props) {
+  const userContext = useContext(productContext);
   useEffect(() => {
     const cartBox = document.querySelector(".cart-detail");
     cartBox.style.display = !props.value ? `none` : `grid`;
