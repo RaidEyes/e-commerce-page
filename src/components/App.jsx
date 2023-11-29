@@ -11,9 +11,8 @@ const productInfo = {
 const productContext = createContext(productInfo);
 
 function App() {
-  const [quantity, setQuantity] = useState(0);
   return (
-    <productContext.Provider value={{ productInfo, quantity, setQuantity }}>
+    <productContext.Provider value={{ productInfo }}>
       <div>
         <Header />
         <Main />

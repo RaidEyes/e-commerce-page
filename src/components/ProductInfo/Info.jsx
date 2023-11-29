@@ -53,4 +53,4 @@ function Info() {
   );
 }
 
-export default Info;
+export { Info };
