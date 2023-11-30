@@ -8,11 +8,46 @@ const productInfo = {
   url: `/images/image-product-1-thumbnail.jpg`,
 };
 
-const productContext = createContext(productInfo);
+const productContext = createContext();
 
 function App() {
+  const [itemCount, setItemCount] = useState(0);
+
+  const increaseNumber = () => {
+    let prev = itemCount;
+    setItemCount(prev + 1);
+  };
+
+  const decreaseNumber = () => {
+    if (itemCount === 0) return;
+    let prev = itemCount;
+    setItemCount(prev - 1);
+  };
+
+  const [cartDetail, setCartDetail] = useState({});
+
+  const addToCart = () => {
+    const newItem = {
+      name: productInfo.name,
+      quantity: itemCount,
+      thumbnail: productInfo.url,
+      price: productInfo.price,
+    };
+    setItemCount(0);
+    return newItem;
+  };
+
   return (
-    <productContext.Provider value={{ productInfo }}>
+    <productContext.Provider
+      value={{
+        productInfo,
+        increaseNumber,
+        decreaseNumber,
+        itemCount,
+        addToCart,
+        cartDetail,
+      }}
+    >
       <div>
         <Header />
         <Main />

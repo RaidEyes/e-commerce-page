@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
-import CountContext from "../Context/CartContext";
+import { productContext } from "../App";
 
 function Button() {
+  const userContext = useContext(productContext);
+
+  const addToCart = userContext.addToCart;
   return (
-    <button className="btn btn-add">
+    <button className="btn btn-add" onClick={addToCart}>
       <svg
         className="material-symbols-outlined"
         width="22"

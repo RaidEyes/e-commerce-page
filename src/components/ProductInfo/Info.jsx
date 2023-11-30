@@ -3,20 +3,11 @@ import { productContext } from "../App";
 
 function Info() {
   const userContext = useContext(productContext);
+
+  const increaseNumber = userContext.increaseNumber;
+  const decreaseNumber = userContext.decreaseNumber;
+  const itemCount = userContext.itemCount;
   const { name, price, url } = userContext.productInfo;
-
-  const [changeValue, setChangeValue] = useState(0);
-
-  const increaseNumber = () => {
-    let prev = changeValue;
-    setChangeValue(prev + 1);
-  };
-
-  const decreaseNumber = () => {
-    if (changeValue === 0) return;
-    let prev = changeValue;
-    setChangeValue(prev - 1);
-  };
 
   return (
     <>
@@ -40,7 +31,7 @@ function Info() {
             alt="minus icon"
             onClick={decreaseNumber}
           />
-          <p className="numver-display">{changeValue}</p>
+          <p className="numver-display">{itemCount}</p>
           <img
             style={{ cursor: `pointer` }}
             src="/images/icon-plus.svg"
