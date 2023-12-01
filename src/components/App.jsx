@@ -4,7 +4,7 @@ import Main from "./Main";
 
 const productInfo = {
   name: `Fall Limited Edition Sneakers`,
-  price: `$125.00`,
+  price: 125,
   url: `/images/image-product-1-thumbnail.jpg`,
 };
 
@@ -24,17 +24,22 @@ function App() {
     setItemCount(prev - 1);
   };
 
-  const [cartDetail, setCartDetail] = useState({});
+  const [cartDetail, setCartDetail] = useState(null);
+  const [productCount, setProductCount] = useState(0);
 
   const addToCart = () => {
+    if (itemCount === 0) return;
+    let count = itemCount;
     const newItem = {
       name: productInfo.name,
       quantity: itemCount,
       thumbnail: productInfo.url,
       price: productInfo.price,
+      total: itemCount * parseInt(productInfo.price),
     };
+    setProductCount(itemCount);
+    setCartDetail({ ...newItem });
     setItemCount(0);
-    return newItem;
   };
 
   return (
@@ -46,6 +51,7 @@ function App() {
         itemCount,
         addToCart,
         cartDetail,
+        productCount,
       }}
     >
       <div>

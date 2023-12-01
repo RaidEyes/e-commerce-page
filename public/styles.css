@@ -104,7 +104,7 @@ body {
   position: relative;
   cursor: pointer;
 }
-.cart-icon::before {
+.product-quantity {
   font-size: 10px;
   font-weight: 700;
   color: white;
@@ -121,7 +121,7 @@ body {
 }
 .cart-detail {
   display: none;
-  grid-template-rows: 0.5fr 1fr;
+  grid-template-rows: 0.2fr 1fr;
   padding-inline: var(--padding-inline);
   padding-block: var(--padding-block);
   position: absolute;
@@ -325,6 +325,10 @@ body {
 
 .item {
   display: grid;
-  grid-template-columns: min-content 1fr min-content;
-  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  grid-template-columns: min-content max-content min-content;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  text-align: left;
 }

@@ -19,7 +19,7 @@ function Info() {
         weather can offer
       </p>
       <div className="price">
-        <p className="current-price">{price}</p>
+        <p className="current-price">${Number.parseFloat(price).toFixed(2)}</p>
         <p className="discount-price">50%</p>
         <p className="old-price">$250.00</p>
       </div>
