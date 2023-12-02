@@ -7,6 +7,7 @@ function CartDetail(props) {
     const cartBox = document.querySelector(".cart-detail");
     cartBox.style.display = !props.value ? `none` : `grid`;
   }, [props.value]);
+  const deleteItem = userContext.deleteItem;
 
   if (!userContext.cartDetail)
     return (
@@ -39,14 +40,13 @@ function CartDetail(props) {
               </p>
             </div>
             <img
+              onClick={deleteItem}
               style={{ maxWidth: "20px" }}
               src="../../public/images/icon-delete.svg"
               alt="delete icon"
             />
           </div>
-          <button style={{ width: "100%" }} className="btn btn-add">
-            Checkout
-          </button>
+          <button className="btn btn-add">Checkout</button>
         </div>
       </div>
     );

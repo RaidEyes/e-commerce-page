@@ -16,6 +16,7 @@
   img, picture, video, canvas, svg {
     display: block;
     max-width: 100%;
+    cursor: pointer;
   }
   input, button, textarea, select {
     font: inherit;
@@ -310,6 +311,8 @@ body {
 }
 
 .btn-add {
+  width: 100%;
+  cursor: pointer;
   padding-block: var(--padding-block);
   display: flex;
   flex-direction: row;
