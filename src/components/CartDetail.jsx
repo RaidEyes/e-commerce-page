@@ -3,26 +3,43 @@ import { productContext } from "./App";
 
 function CartDetail(props) {
   const userContext = useContext(productContext);
-  useEffect(() => {
-    const cartBox = document.querySelector(".cart-detail");
-    cartBox.style.display = !props.value ? `none` : `grid`;
-  }, [props.value]);
+
   const deleteItem = userContext.deleteItem;
 
+  const closeModal = () => {
+    const cartBox = document.querySelector(".cart-detail");
+    cartBox.close();
+  };
   if (!userContext.cartDetail)
     return (
-      <div className="cart-detail" data-check={props.value}>
-        <h3 className="cart-name">Cart</h3>
+      <dialog className="cart-detail" data-check={props.value}>
+        <div className="cart-heading">
+          <h3 className="cart-name">Cart</h3>
+          <img
+            onClick={closeModal}
+            style={{ width: "20px", height: "20px" }}
+            src="../../public/images/icon-close.svg"
+            alt="close icon"
+          />
+        </div>
         <div className="product-detail">
           <p>Your cart is empty</p>
         </div>
-      </div>
+      </dialog>
     );
   if (userContext.cartDetail) {
     const { name, price, quantity, thumbnail, total } = userContext.cartDetail;
     return (
-      <div className="cart-detail" data-check={props.value}>
-        <h3 className="cart-name">Cart</h3>
+      <dialog className="cart-detail" data-check={props.value}>
+        <div className="cart-heading">
+          <h3 className="cart-name">Cart</h3>
+          <img
+            onClick={closeModal}
+            style={{ width: "20px", height: "20px" }}
+            src="../../public/images/icon-close.svg"
+            alt="close icon"
+          />
+        </div>
         <div className="product-detail">
           <div style={{ marginBottom: "1rem" }} className="item">
             <img
@@ -48,7 +65,7 @@ function CartDetail(props) {
           </div>
           <button className="btn btn-add">Checkout</button>
         </div>
-      </div>
+      </dialog>
     );
   }
 }
