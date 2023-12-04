@@ -51,7 +51,7 @@
   }
 /* =================================================================== */
 body {
-  /* min-height: 100vh; */
+  min-height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -68,7 +68,10 @@ body {
   gap: clamp(0rem, 1rem ,2rem);
   padding-inline: var(--padding-inline);
   padding-block: var(--padding-block);
-  position: relative;
+  position: fixed;
+  background-color: white;
+  top: 0;
+  z-index: 1000;
 }
 /* Create number of products added to the cart */
 @keyframes show-cart {
@@ -168,24 +171,48 @@ dialog::backdrop {
 }
 /** Nav bar styling  */
 /* for the transition */
-.nav-bar-transition {
-  display: block;
-  transform: translate(100%,0);
+@keyframes open-menu {
+  from {
+    display: none;
+    transform: translate(-100%,0);
+  }
+  to {
+    display: block;
+    transform: translate(0,0);
+    
+  }
+}
+@keyframes close-menu {
+  to {
+    display: none;
+    transform: translate(-100%,0);
+  }
+  from {
+    display: block;
+    transform: translate(0,0);
+  }
+}
+.nav-bar[data-open-menu="true"] {
+  animation: open-menu 600ms ease;
+}
+.nav-bar[data-open-menu="false"] {
+  animation: close-menu 650ms ease-in;
 }
 /* ------------------- */
 .nav-bar {
-  display: none;
-  transform: translate(-100%,0);
-  position: absolute;
+  will-change: height;
+  position: fixed;
   z-index: 10;
   left: 0;
   gap:2rem;
   top: 0;
+  border: none;
   background-color: white;
-  padding-inline: 3rem;
+  padding-right: 8rem;
+  padding-left: 2rem;
   padding-top: 2rem;
-  height: 100%;
-  margin: 0;
+  height: 100vh;
+  max-height: 100%;
 }
 
 .nav-bar ul {
@@ -210,6 +237,7 @@ dialog::backdrop {
   justify-content: center;
   align-items: center;
   gap: var(--flex-gap);
+  margin-top: 65px;
 }
 /** Carousel style  */
 .carousel-img, .carousel-thumbnail {
