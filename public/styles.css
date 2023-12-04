@@ -62,6 +62,7 @@ body {
 /** Header style  */
 #header {
   display: flex;
+  width: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -230,15 +231,7 @@ dialog::backdrop {
   width: 1.5rem;
   cursor: pointer;
 }
-/** Main style */
-#main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: var(--flex-gap);
-  margin-top: 65px;
-}
+
 /** Carousel style  */
 .carousel-img, .carousel-thumbnail {
   display: flex;
@@ -277,7 +270,41 @@ dialog::backdrop {
 .next-icon {
   right: var(--padding-inline);
 }
+/** Main style */
+#main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--flex-gap);
+}
+@media (width > 875px) {
+  #header {
+    padding-inline: 5rem;
+  }
+  #main {
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-inline: 7rem;
+  }
+  .carousel-img img {
+    aspect-ratio: 1;
+    border-radius: 15px;
+  }
+  .carousel-thumbnail {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-between ;
+  }
+  .carousel-thumbnail img {
+    border-radius: 8px;
+    max-width: 80px;
+  }
+}
 /** Main content styling */
+
 .product-info {
   padding-inline: var(--padding-inline);
   padding-block: calc(var(--padding-block) - 1rem);
@@ -300,7 +327,6 @@ dialog::backdrop {
 
 .info-description {
   color: var(--dark-gray-blue-clr);
-  /* font-weight: 500; */
 }
 
 .price, .quantity {
