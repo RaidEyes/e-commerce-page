@@ -128,7 +128,7 @@ body {
 }
 .cart-detail {
   border: none;
-  max-width: clamp(354px,500px,750px);
+  max-width: 354px;
   grid-template-rows: 0.2fr 1fr;
   padding-inline: var(--padding-inline);
   padding-block: var(--padding-block);
@@ -161,8 +161,15 @@ dialog::backdrop {
  color: var(--dark-gray-blue-clr);
 }
 /* ------------------------------------------ */
+.btn:hover {
+  background-color: hsla(26, 100%, 55%, 0.637)
+}
+.carousel img:hover {
+  filter: brightness(120%) contrast(80%);
+  border: 2px solid var(--primary-clr-orange);
+}
 .avatar {
-  max-width: 10%;
+  max-width: 50px;
 }
  .cart-icon {
   margin-left: auto;
@@ -184,13 +191,13 @@ dialog::backdrop {
   }
 }
 @keyframes close-menu {
-  to {
-    display: none;
-    transform: translate(-100%,0);
-  }
   from {
     display: block;
     transform: translate(0,0);
+  }
+  to {
+    transform: translate(-100%,0);
+    display: none;
   }
 }
 .nav-bar[data-open-menu="true"] {
@@ -201,7 +208,6 @@ dialog::backdrop {
 }
 /* ------------------- */
 .nav-bar {
-  will-change: height;
   position: fixed;
   z-index: 10;
   left: 0;
@@ -278,19 +284,70 @@ dialog::backdrop {
   align-items: center;
   gap: var(--flex-gap);
 }
+/** Media queries ====================================== */ 
 @media (width > 875px) {
   #header {
-    padding-inline: 5rem;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 80%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.412);
+  }
+  .nav-bar {
+    display: flex;
+    background-color: transparent;
+  }
+  .nav-bar ul {
+    flex-direction: row;
+    margin: 0;
+    padding-left: 12rem;
+  }
+  .nav-bar a {
+    font-weight: 500;
+    position: relative;
+  }
+  .nav-bar a::after {
+    content: '';
+    position: absolute;
+    background-color: var(--primary-clr-orange);
+    width: 0%;
+    height: 3px;
+    bottom: -30px;
+    left: 0;
+    transition: width 0.6s ease;
+  }
+  .nav-bar a:hover::after {
+    width: 100%;
+  }
+  .nav-bar[data-open-menu="true"] {
+    animation: none;
+  }
+  .nav-bar[data-open-menu="false"] {
+    animation: none;
   }
   #main {
-    
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding-inline: 7rem;
+    padding-inline: 8rem;
+    gap: 5rem;
   }
-  .carousel-img img {
+  .cart-detail {
+    inset: 10%;
+    left: 80%;
+  }
+  .icon, .close-icon, .menu-icon {
+    display: none;
+  }
+  .product-info {
+    max-width: 400px;
+  }
+ .carousel {
+  max-width: 400px;
+}
+.carousel-img img {
     aspect-ratio: 1;
     border-radius: 15px;
+    background-position: center;
+    max-width: 400px;
   }
   .carousel-thumbnail {
     display: flex;
