@@ -168,6 +168,7 @@ dialog::backdrop {
   filter: brightness(120%) contrast(80%);
   border: 2px solid var(--primary-clr-orange);
 }
+
 .avatar {
   max-width: 50px;
 }
@@ -204,7 +205,7 @@ dialog::backdrop {
   animation: open-menu 600ms ease;
 }
 .nav-bar[data-open-menu="false"] {
-  animation: close-menu 650ms ease-in;
+  animation: close-menu 600ms ease-in;
 }
 /* ------------------- */
 .nav-bar {
@@ -249,7 +250,7 @@ dialog::backdrop {
 }
 .carousel-img img {
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 1/1;
   object-fit: cover;
 }
 
@@ -285,7 +286,12 @@ dialog::backdrop {
   gap: var(--flex-gap);
 }
 /** Media queries ====================================== */ 
-@media (width > 875px) {
+@media (500px < width <= 800px ) {
+  .carousel-img img {
+    aspect-ratio: 4/3;
+  }
+}
+@media (width > 800px) {
   #header {
     left: 50%;
     transform: translate(-50%,0);
@@ -344,7 +350,6 @@ dialog::backdrop {
   max-width: 400px;
 }
 .carousel-img img {
-    aspect-ratio: 1;
     border-radius: 15px;
     background-position: center;
     max-width: 400px;
@@ -353,7 +358,7 @@ dialog::backdrop {
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    justify-content: space-between ;
+    justify-content: space-between;
   }
   .carousel-thumbnail img {
     border-radius: 8px;
