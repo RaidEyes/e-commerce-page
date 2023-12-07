@@ -32,58 +32,61 @@ const Images = [
 function Carousel(props) {
   const deviceWidth = document.body.clientWidth;
   const [carousel, setCarousel] = useState(0);
-  const slideRight = () => {
-    if (carousel === 3) return;
-    let prev = carousel;
-    setCarousel(prev + 1);
-  };
-  const slideleft = () => {
+
+  const prevClickHandler = () => {
     if (carousel === 0) return;
     let prev = carousel;
     setCarousel(prev - 1);
   };
 
-  useEffect(() => {
-    const carouselContainer = document.querySelector(".carousel-img");
-  }, [carousel]);
-  console.log(Images);
+  const nextClickHandler = () => {
+    if (carousel === 3) return;
+    let prev = carousel;
+    setCarousel(prev + 1);
+  };
+
   return (
     <div className="carousel">
-      <div
-        style={{ transform: `translateX(-${deviceWidth * carousel}px)` }}
-        className="carousel-img"
-      >
-        <button onClick={slideleft} className="icon previous-icon">
+      <div className="carousel-img">
+        <button onClick={prevClickHandler} className="icon previous-icon">
           <svg width="40%" height="50%" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M11 1 3 9l8 8"
               stroke="#1D2026"
-              stroke-width="3"
+              strokeWidth="3"
               fill="none"
-              fill-rule="evenodd"
+              fillRule="evenodd"
             />
           </svg>
         </button>
-        <button onClick={slideRight} className="icon next-icon">
+        <button onClick={nextClickHandler} className="icon next-icon">
           <svg width="40%" height="50%" xmlns="http://www.w3.org/2000/svg">
             <path
               d="m2 1 8 8-8 8"
               stroke="#1D2026"
-              stroke-width="3"
+              strokeWidth="3"
               fill="none"
-              fill-rule="evenodd"
+              fillRule="evenodd"
             />
           </svg>
         </button>
         {Images.map((image) => {
           const { img, alt, id } = image;
-          return <CarouselImage img={img} key={id} alt={alt} />;
+          return (
+            <CarouselImage
+              slide={deviceWidth * carousel}
+              img={img}
+              id={id}
+              key={id}
+              alt={alt}
+            />
+          );
         })}
       </div>
 
       <div className="carousel-thumbnail">
-        {Images.map((image) => {
-          const { thumbnail, alt, id } = image;
+        {Images.map((img) => {
+          const { thumbnail, alt, id } = img;
           return <CarouselThumbnail thumbnail={thumbnail} key={id} alt={alt} />;
         })}
       </div>

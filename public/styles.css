@@ -252,6 +252,7 @@ dialog::backdrop {
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
+  transition: transform 800ms ease;
 }
 
 .carousel-thumbnail {
@@ -259,6 +260,7 @@ dialog::backdrop {
   display: none;
 }
 .icon {
+  z-index: 9;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -284,13 +286,10 @@ dialog::backdrop {
   justify-content: center;
   align-items: center;
   gap: var(--flex-gap);
+  margin-top: 4rem;
 }
 /** Media queries ====================================== */ 
-@media (500px < width <= 800px ) {
-  .carousel-img img {
-    aspect-ratio: 4/3;
-  }
-}
+
 @media (width > 800px) {
   #header {
     left: 50%;

@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import Carousel from "./Carousel";
+import Carousel from "./Carousel/Carousel";
 import ProductInfo from "./ProductInfo/ProductInfo";
 import Dialog from "./Dialog";
 
