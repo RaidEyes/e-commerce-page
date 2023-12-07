@@ -79,3 +79,4 @@ export { App, productContext };
 ///// todo 6: design menu for mobile
 ///// todo 7: Add transition for the menu
 //todo 8: create a popover slide when clicking the main image
+//todo 9: add style to each of the clicked thumbnail

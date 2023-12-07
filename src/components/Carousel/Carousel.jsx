@@ -33,6 +33,7 @@ function Carousel(props) {
   const deviceWidth = document.body.clientWidth;
   const [carousel, setCarousel] = useState(0);
   const [slideWidth, setSlideWidth] = useState(0);
+  const [thumbnailSlider, setThumbnailSlider] = useState(0);
 
   const prevClickHandler = () => {
     if (carousel === 0) return;
@@ -48,8 +49,11 @@ function Carousel(props) {
 
   const thumbnailClick = (e) => {
     const img = Images.findIndex((item) => item.alt === e.target.alt);
+    const parentWidth = e.target.parentNode.offsetWidth;
+    const thumbnailSliderVal = (parentWidth - 80 * 4) / 3 + 80;
+    setThumbnailSlider(thumbnailSliderVal * img);
     setCarousel(img);
-    setSlideWidth(e.target.parentNode.offsetWidth);
+    setSlideWidth(parentWidth);
   };
   return (
     <div className="carousel">
@@ -93,6 +97,10 @@ function Carousel(props) {
       </div>
 
       <div className="carousel-thumbnail">
+        <div
+          style={{ transform: `translate(${thumbnailSlider}px,0)` }}
+          className="thumbnail-outline"
+        ></div>
         {Images.map((img) => {
           const { thumbnail, alt, id } = img;
           return (

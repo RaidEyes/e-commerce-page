@@ -166,7 +166,6 @@ dialog::backdrop {
 }
 .carousel img:hover {
   filter: brightness(120%) contrast(80%);
-  border: 2px solid var(--primary-clr-orange);
 }
 
 .avatar {
@@ -362,6 +361,16 @@ dialog::backdrop {
   .carousel-thumbnail img {
     border-radius: 8px;
     max-width: 80px;
+  }
+  .thumbnail-outline {
+    position: absolute;
+    width: 80px;
+    aspect-ratio: 1/1;
+    background-color: rgba(255, 255, 255, 0.637);
+    border: 3px solid var(--primary-clr-orange);
+    border-radius: 8px;
+    z-index: 11;
+    transition: transform 700ms ease;
   }
 }
 /** Main content styling */
