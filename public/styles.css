@@ -290,7 +290,7 @@ dialog::backdrop {
 }
 /** Media queries ====================================== */ 
 
-@media (width > 800px) {
+@media (width > 975px) {
   #header {
     left: 50%;
     transform: translate(-50%,0);

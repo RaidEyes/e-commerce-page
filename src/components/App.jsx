@@ -71,10 +71,11 @@ function App() {
 
 export { App, productContext };
 
-// todo 1: Create desktop design
-// todo 2: create carousel
-// todo 3: create carousel and design dialog
+///// todo 1: Create desktop design
+///// todo 2: create carousel
+///// todo 3: create carousel and design dialog
 ///// todo 4: Add button functions (plus, minus, Add to cart)
 ///// todo 5: Design the cart (empty + fill)
 ///// todo 6: design menu for mobile
 ///// todo 7: Add transition for the menu
+//todo 8: create a popover slide when clicking the main image

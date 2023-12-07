@@ -1,11 +1,10 @@
 import React from "react";
 
 function CarouselThumbnail(props) {
-  const { thumbnail, id, alt } = props;
-
+  const { thumbnail, value, alt, func } = props;
   return (
     <>
-      <img src={thumbnail} alt={alt} key={id} />
+      <img onClick={func} src={thumbnail} alt={alt} />
     </>
   );
 }
