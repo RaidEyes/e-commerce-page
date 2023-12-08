@@ -7,6 +7,7 @@ function Dialog() {
   const toggleDialog = useContext(dialogContext).toggleDialog;
   const setDialog = useContext(dialogContext).setDialog;
   useEffect(() => {
+    if (window.innerWidth < 975) return;
     const dialogEl = document.getElementById("dialog");
     if (dialogState === true) {
       dialogEl.showModal();
