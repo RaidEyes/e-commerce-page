@@ -18,7 +18,7 @@ function CartDetail(props) {
           <img
             onClick={closeModal}
             style={{ width: "20px", height: "20px" }}
-            src="../../public/images/icon-close.svg"
+            src="/images/icon-close.svg"
             alt="close icon"
           />
         </div>
@@ -36,7 +36,7 @@ function CartDetail(props) {
           <img
             onClick={closeModal}
             style={{ width: "20px", height: "20px" }}
-            src="../../public/images/icon-close.svg"
+            src="/images/icon-close.svg"
             alt="close icon"
           />
         </div>
@@ -59,7 +59,7 @@ function CartDetail(props) {
             <img
               onClick={deleteItem}
               style={{ maxWidth: "20px" }}
-              src="../../public/images/icon-delete.svg"
+              src="/images/icon-delete.svg"
               alt="delete icon"
             />
           </div>
