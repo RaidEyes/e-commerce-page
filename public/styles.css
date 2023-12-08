@@ -144,7 +144,7 @@ body {
   box-shadow: 8px 8px 8px rgba(102, 102, 102, 0.59);
 }
 dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.314);
+  background-color: rgba(0, 0, 0, 0.719);
 }
 
 .cart-heading {
@@ -290,6 +290,33 @@ dialog::backdrop {
 /** Media queries ====================================== */ 
 
 @media (width > 975px) {
+  #dialog {
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    z-index: 12;
+    transform: translate(-50%,0);
+    border: none;
+    background-color: transparent;
+  }
+  #dialog[data-open-dialog="true"] {
+    display: block;
+    animation: show-cart 600ms ease;
+  }
+  #dialog .icon {
+    display: flex;
+  }
+  #dialog .next-icon {
+    right: 0;
+  }
+  #dialog .previous-icon {
+    left: 0;
+  }
+ 
+  #dialog .carousel-thumbnail img {
+    width: 80px;
+  }
+  
   #header {
     left: 50%;
     transform: translate(-50%,0);

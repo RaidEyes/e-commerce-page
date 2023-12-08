@@ -11,6 +11,11 @@ const productInfo = {
 const productContext = createContext();
 
 function App() {
+  const [dialog, setDialog] = useState(false);
+  const toggleDialog = () => {
+    const prev = dialog;
+    setDialog(!prev);
+  };
   const [itemCount, setItemCount] = useState(0);
 
   const increaseNumber = () => {
@@ -59,6 +64,8 @@ function App() {
         cartDetail,
         productCount,
         deleteItem,
+        dialog,
+        toggleDialog,
       }}
     >
       <div>
@@ -79,4 +86,4 @@ export { App, productContext };
 ///// todo 6: design menu for mobile
 ///// todo 7: Add transition for the menu
 //todo 8: create a popover slide when clicking the main image
-//todo 9: add style to each of the clicked thumbnail
+/////todo 9: add style to each of the clicked thumbnail

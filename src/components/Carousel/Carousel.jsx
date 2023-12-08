@@ -32,19 +32,23 @@ const Images = [
 function Carousel(props) {
   const deviceWidth = document.body.clientWidth;
   const [carousel, setCarousel] = useState(0);
-  const [slideWidth, setSlideWidth] = useState(0);
+  const [slideWidth, setSlideWidth] = useState(400);
   const [thumbnailSlider, setThumbnailSlider] = useState(0);
 
   const prevClickHandler = () => {
     if (carousel === 0) return;
     let prev = carousel;
     setCarousel(prev - 1);
+    const parentWidth = (400 - 80 * 4) / 3 + 80;
+    setThumbnailSlider((carousel - 1) * parentWidth);
   };
 
   const nextClickHandler = () => {
     if (carousel === 3) return;
     let prev = carousel;
     setCarousel(prev + 1);
+    const parentWidth = (400 - 80 * 4) / 3 + 80;
+    setThumbnailSlider((carousel + 1) * parentWidth);
   };
 
   const thumbnailClick = (e) => {
@@ -55,6 +59,7 @@ function Carousel(props) {
     setCarousel(img);
     setSlideWidth(parentWidth);
   };
+
   return (
     <div className="carousel">
       <div className="carousel-img">

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { dialogContext } from "../Main";
 
 function CarouselImage(props) {
+  const dialogState = useContext(dialogContext).toggleDialog;
   const { img, id, alt, slide, deviceWidth, slideWidth } = props;
-
   if (deviceWidth <= 975)
     return (
       <>
@@ -11,6 +12,7 @@ function CarouselImage(props) {
           src={img}
           alt={alt}
           key={id}
+          onClick={dialogState}
         />
       </>
     );
@@ -23,6 +25,7 @@ function CarouselImage(props) {
           src={img}
           alt={alt}
           key={id}
+          onClick={dialogState}
         />
       </>
     );
